@@ -11,11 +11,11 @@ export const demoPlayers = [
 // Real player portraits for the featured Collection; name matching also covers API records.
 export const realPlayerImages = {
   mbappe: "https://m.media-amazon.com/images/I/91fYBJk4pEL._AC_SL1500_.jpg",
-  haaland: "https://www.zerozero.pt/img/jogadores/new/27/41/512741_erling_haaland_20251110124706.png",
-  vinicius: "https://commons.wikimedia.org/wiki/Special:FilePath/Vinicius%20Junior%20(2025).jpg?width=500",
-  bellingham: "https://upload.wikimedia.org/wikipedia/commons/0/0a/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped2%29.jpg",
-  rodri: "https://cdn-img.zerozero.pt/img/jogadores/new/13/48/331348_rodri__20251110125120.png",
-  saliba: "https://www.ogol.com.br/img/planteis/new/72/24/11527224_william_saliba_20240817002854.png",
+  haaland: "https://i.ebayimg.com/images/g/AEkAAOSw9KFm0mtu/s-l1200.webp",
+  vinicius: "https://i.ebayimg.com/images/g/bssAAeSwu3NpbS0S/s-l1600.jpg",
+  bellingham: "https://www.worldtradingcards.com/cdn/shop/files/WTC_PNN_ADN_FWC_26_MM1.webp?v=1776695905",
+  rodri: "https://i.ebayimg.com/images/g/UisAAeSwhF9pTDgf/s-l1200.webp",
+  saliba: "https://i.ebayimg.com/images/g/BY0AAeSwb6tpq76q/s-l1200.webp",
   courtois: "https://cdn.starwebserver.se/shops/coolcard/files/tc23-269.jpg",
 };
 
