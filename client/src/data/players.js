@@ -10,13 +10,13 @@ export const demoPlayers = [
 
 // Real player portraits for the featured Collection; name matching also covers API records.
 export const realPlayerImages = {
-  mbappe: "https://www.zerozero.com.ar/img/jogadores/new/45/08/394508_kylian_mbappe_20250923225357.png",
+  mbappe: "https://m.media-amazon.com/images/I/91fYBJk4pEL._AC_SL1500_.jpg",
   haaland: "https://www.zerozero.pt/img/jogadores/new/27/41/512741_erling_haaland_20251110124706.png",
   vinicius: "https://commons.wikimedia.org/wiki/Special:FilePath/Vinicius%20Junior%20(2025).jpg?width=500",
   bellingham: "https://upload.wikimedia.org/wikipedia/commons/0/0a/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped2%29.jpg",
   rodri: "https://cdn-img.zerozero.pt/img/jogadores/new/13/48/331348_rodri__20251110125120.png",
   saliba: "https://www.ogol.com.br/img/planteis/new/72/24/11527224_william_saliba_20240817002854.png",
-  courtois: "https://www.zerozero.pt/img/jogadores/new/56/28/95628_thibaut_courtois_20250820115922.png",
+  courtois: "https://cdn.starwebserver.se/shops/coolcard/files/tc23-269.jpg",
 };
 
 export function getPlayerPortrait(player) {
