@@ -9,6 +9,7 @@ test("a registered user is a player by default", async () => {
   await user.validate();
   assert.equal(user.role, "player");
   assert.equal(user.walletBalance, 1000);
+  assert.deepEqual(user.ownedPlayers, []);
 });
 
 test("a user role must be player or admin", async () => {

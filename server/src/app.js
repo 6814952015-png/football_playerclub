@@ -5,6 +5,7 @@ const gameSessionRoutes = require("./routes/gameSession.routes");
 const userRoutes = require("./routes/user.routes");
 const roomRoutes = require("./routes/room.routes");
 const adminRoutes = require("./routes/admin.routes");
+const marketRoutes = require("./routes/market.routes");
 const { notFound, errorHandler } = require("./middlewares/error.middleware");
 const app = express();
 
@@ -19,8 +20,9 @@ app.use("/api/games", gameSessionRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/rooms", roomRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/market", marketRoutes);
 
-// 3. Error handling — must be LAST
+// 3. Error handling must be LAST
 app.use(notFound);
 app.use(errorHandler);
 

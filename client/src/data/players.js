@@ -7,3 +7,26 @@ export const demoPlayers = [
   { _id: "68a100000000000000000006", name: "William Saliba", shortName: "SALIBA", nationality: "France", club: "Arsenal", position: "DEF", overallRating: 88, imageUrl: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&w=300&q=85", stats: { pace: 82, shooting: 52, passing: 75, dribbling: 76 } },
   { _id: "68a100000000000000000007", name: "Thibaut Courtois", shortName: "COURTOIS", nationality: "Belgium", club: "Real Madrid", position: "GK", overallRating: 89, imageUrl: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=300&q=85", stats: { pace: 43, shooting: 20, passing: 33, dribbling: 13 } },
 ];
+
+// Real player portraits for the featured Collection; name matching also covers API records.
+export const realPlayerImages = {
+  mbappe: "https://www.zerozero.com.ar/img/jogadores/new/45/08/394508_kylian_mbappe_20250923225357.png",
+  haaland: "https://www.zerozero.pt/img/jogadores/new/27/41/512741_erling_haaland_20251110124706.png",
+  vinicius: "https://commons.wikimedia.org/wiki/Special:FilePath/Vinicius%20Junior%20(2025).jpg?width=500",
+  bellingham: "https://upload.wikimedia.org/wikipedia/commons/0/0a/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped2%29.jpg",
+  rodri: "https://cdn-img.zerozero.pt/img/jogadores/new/13/48/331348_rodri__20251110125120.png",
+  saliba: "https://www.ogol.com.br/img/planteis/new/72/24/11527224_william_saliba_20240817002854.png",
+  courtois: "https://www.zerozero.pt/img/jogadores/new/56/28/95628_thibaut_courtois_20250820115922.png",
+};
+
+export function getPlayerPortrait(player) {
+  const identity = `${player.shortName || ""} ${player.name || ""}`.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const key = identity.includes("mbapp") ? "mbappe"
+    : identity.includes("haaland") ? "haaland"
+      : identity.includes("vinicius") ? "vinicius"
+        : identity.includes("bellingham") ? "bellingham"
+          : identity.includes("rodri") ? "rodri"
+            : identity.includes("saliba") ? "saliba"
+              : identity.includes("courtois") ? "courtois" : null;
+  return key ? realPlayerImages[key] : player.imageUrl;
+}

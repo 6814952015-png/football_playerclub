@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const ownedPlayerSchema = new mongoose.Schema({ player: { type: mongoose.Schema.Types.ObjectId, ref: "Player", required: true }, pricePaid: { type: Number, required: true, min: 0 }, purchasedAt: { type: Date, default: Date.now } }, { _id: true });
+
 const userSchema = new mongoose.Schema(
   {
     displayName: { type: String, required: true, trim: true, minlength: 2, maxlength: 40 },
@@ -13,6 +15,7 @@ const userSchema = new mongoose.Schema(
     walletUnlimited: { type: Boolean, default: false },
     // Each newly registered account receives this starting wallet automatically.
     walletBalance: { type: Number, default: 1000, min: 0 },
+    ownedPlayers: { type: [ownedPlayerSchema], default: [] },
     favoritePlayers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Player" }],
     stats: {
       gamesPlayed: { type: Number, default: 0, min: 0 },
