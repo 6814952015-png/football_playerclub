@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Player = require("../models/player.model");
 
 const listUsers = async (_req, res, next) => {
   try {
@@ -18,4 +19,33 @@ const updateUser = async (req, res, next) => {
   } catch (error) { next(error); }
 };
 
-module.exports = { listUsers, updateUser };
+const createMarketPlayer = async (req, res, next) => {
+  try {
+    const { name, shortName, nationality, club, position, shirtNumber, overallRating, imageUrl, stats } = req.body || {};
+    const player = await Player.create({
+      name, shortName, nationality, club, position, shirtNumber, overallRating, imageUrl, stats,
+      isTopPlayer2026: true,
+      isActive: true,
+    });
+    res.status(201).json({ ...player.toJSON(), price: player.overallRating * 5 });
+  } catch (error) { next(error); }
+};
+
+const listPurchaseHistory = async (_req, res, next) => {
+  try {
+    const users = await User.find()
+      .select("displayName username email ownedPlayers")
+      .populate("ownedPlayers.player", "name shortName club position overallRating imageUrl")
+      .lean();
+    const purchases = users.flatMap((user) => (user.ownedPlayers || []).map((purchase) => ({
+      _id: purchase._id,
+      user: { _id: user._id, displayName: user.displayName, username: user.username, email: user.email },
+      player: purchase.player || null,
+      pricePaid: purchase.pricePaid,
+      purchasedAt: purchase.purchasedAt,
+    }))).sort((a, b) => new Date(b.purchasedAt || 0) - new Date(a.purchasedAt || 0));
+    res.json({ purchases, total: purchases.length });
+  } catch (error) { next(error); }
+};
+
+module.exports = { listUsers, updateUser, createMarketPlayer, listPurchaseHistory };

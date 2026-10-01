@@ -3,6 +3,7 @@ import { ArrowDown, LogOut, ShoppingBag, Trophy, UserRound, WalletCards, X } fro
 import { demoPlayers, getPlayerPortrait } from "./data/players";
 import AuthModal from "./components/AuthModal";
 import AdminPanel from "./components/AdminPanel";
+import AdminTools from "./components/AdminTools";
 import PlayerMarket from "./components/PlayerMarket";
 
 function readSavedUser() {
@@ -74,7 +75,7 @@ export default function StoreApp() {
     </section>
 
     <PlayerMarket user={user} onSignIn={() => setAuthOpen(true)} onUserUpdate={updateUser} />
-    {user?.role === "admin" && <AdminPanel />}
+    {user?.role === "admin" && <><AdminPanel /><AdminTools /></>}
 
     <footer className="border-t border-white/10 px-5 py-6 text-center text-xs text-slate-500">FOOTBALL CARD SELL · Build your collection with your club wallet</footer>
     {authOpen && <AuthModal onClose={() => setAuthOpen(false)} onSuccess={signIn} />}
